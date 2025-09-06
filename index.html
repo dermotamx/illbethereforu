@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>mAirList Title JSON</title>
+</head>
+<body>
+  <pre id="json">{ "title": "Waiting for the next title..." }</pre>
+
+  <script>
+    const pre = document.getElementById('json');
+    const ws = new WebSocket('ws://' + location.host);
+
+    ws.onmessage = event => {
+      pre.textContent = event.data;
+    };
+  </script>
+</body>
+</html>
